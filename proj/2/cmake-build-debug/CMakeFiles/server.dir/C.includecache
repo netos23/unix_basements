@@ -9,14 +9,14 @@
 /Users/nikitamorozov/edu_vsu/unix_basics/proj/2/src/server.c
 unistd.h
 -
+sys/types.h
+-
+sys/stat.h
+-
 fcntl.h
 -
 stdio.h
 -
-stdlib.h
--
-stdbool.h
--
-signal.h
+sys/file.h
 -
 

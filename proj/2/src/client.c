@@ -7,7 +7,7 @@
 
 #define BLOCK 512
 
-void main() {
+int main() {
     int fd = open("./assets/data", O_RDWR);
     char data[BLOCK];
     while (1) {
@@ -25,4 +25,5 @@ void main() {
         }
     }
     close(fd);
+    return 0;
 }

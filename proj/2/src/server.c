@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <sys/file.h>
 #define BLOCK 512
-void main() {
+int main() {
     int fd = open("./assets/data", O_RDONLY);
     char data[BLOCK];
     while (1) {
@@ -24,4 +24,5 @@ void main() {
         }
     }
     close(fd);
+    return 0;
 }

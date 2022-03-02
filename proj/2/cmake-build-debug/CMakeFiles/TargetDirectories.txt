@@ -1,0 +1,4 @@
+/Users/nikitamorozov/edu_vsu/unix_basics/proj/2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/nikitamorozov/edu_vsu/unix_basics/proj/2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/nikitamorozov/edu_vsu/unix_basics/proj/2/cmake-build-debug/CMakeFiles/server.dir
+/Users/nikitamorozov/edu_vsu/unix_basics/proj/2/cmake-build-debug/CMakeFiles/client.dir

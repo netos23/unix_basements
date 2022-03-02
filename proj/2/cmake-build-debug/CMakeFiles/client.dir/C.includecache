@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/nikitamorozov/edu_vsu/unix_basics/proj/2/src/client.c
+unistd.h
+-
+fcntl.h
+-
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+string.h
+-
+

@@ -11,13 +11,16 @@ int main(int argc, char **argv) {
 
     if ((file = fopen(argv[1], "w")) == NULL) {
         puts("Can`t create file with given name");
+        return 1;
     }
 
     fprintf(file, "Message from %d :\n", getpid());
     for (int i = 2; i < argc; i++) {
         fputs(argv[i], file);
+        fputc('\n', file);
     }
     fclose(file);
 
     return 0;
 }
+

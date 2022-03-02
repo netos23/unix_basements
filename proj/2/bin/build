@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "build server..."
+gcc -o ./server ./../src/server.c
+echo "server build done"
+echo "build client..."
+gcc -o ./client ./../src/client.c
+echo "client build done"

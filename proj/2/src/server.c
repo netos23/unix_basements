@@ -6,7 +6,7 @@
 #include <sys/file.h>
 #define BLOCK 512
 void main() {
-    int fd = open("data", O_RDONLY);
+    int fd = open("./assets/data", O_RDONLY);
     char data[BLOCK];
     while (1) {
         if (flock(fd, LOCK_SH) != -1) {

@@ -8,7 +8,7 @@
 #define BLOCK 512
 
 void main() {
-    int fd = open("data", O_RDWR);
+    int fd = open("./assets/data", O_RDWR);
     char data[BLOCK];
     while (1) {
         if (flock(fd, LOCK_EX) != -1) {

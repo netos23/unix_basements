@@ -27,7 +27,7 @@ enum tstate {
 static struct {
     pthread_t tid;
     enum tstate state;
-} *thread;
+} *thread_mutex_t;
 
 static struct {
     int delay;
@@ -65,7 +65,7 @@ static void *threadFunc(void *arg) {
     sprintf(buffer, "%s", msg[idx].text);
     buf_flag = 1;
     numUnjoined++;
-    thread[idx].state = TS_TERMINATED;
+    thread_mutex_t[idx].state = TS_TERMINATED;
 
 
     s = pthread_mutex_unlock(&threadMutex);
@@ -101,8 +101,8 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
-    thread = calloc(argc / 2, sizeof(*thread));
-    if (thread == NULL) {
+    thread_mutex_t = calloc(argc / 2, sizeof(*thread_mutex_t));
+    if (thread_mutex_t == NULL) {
         printf("calloc err");
         exit(1);
     }
@@ -111,8 +111,8 @@ int main(int argc, char *argv[]) {
         msg[msg_counter].delay = (int) strtol(argv[idx], NULL, 10);
         sprintf(msg[msg_counter].text, "%s", argv[idx + 1]);
 
-        thread[msg_counter].state = TS_ALIVE;
-        s = pthread_create(&thread[msg_counter].tid, NULL, threadFunc, (void *) msg_counter);
+        thread_mutex_t[msg_counter].state = TS_ALIVE;
+        s = pthread_create(&thread_mutex_t[msg_counter].tid, NULL, threadFunc, (void *) msg_counter);
         if (s != 0) {
             printf("pthread create err");
             exit(1);
@@ -141,21 +141,21 @@ int main(int argc, char *argv[]) {
         }
 
         for (idx = 0; idx < totThreads; idx++) {
-            if (thread[idx].state == TS_TERMINATED) {
-                s = pthread_join(thread[idx].tid, &res);
+            if (thread_mutex_t[idx].state == TS_TERMINATED) {
+                s = pthread_join(thread_mutex_t[idx].tid, &res);
                 if (s != 0) {
                     printf("join err");
                     exit(1);
                 }
 
-                printf("msg from thread %d: %s\n", (int) res, buffer);
+                printf("msg from thread_mutex_t %d: %s\n", (int) res, buffer);
                 buf_flag = 0;
 
-                thread[idx].state = TS_JOINED;
+                thread_mutex_t[idx].state = TS_JOINED;
                 numLive--;
                 numUnjoined--;
 
-                printf("Reaped thread %d (remind=%d)\n", idx, numLive);
+                printf("Reaped thread_mutex_t %d (remind=%d)\n", idx, numLive);
             }
         }
 

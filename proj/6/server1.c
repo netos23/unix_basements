@@ -16,11 +16,17 @@ int avail = 0;
 int consumed = 0;
 bool done = false;
 
+typedef struct ThreadMutex {
+    pthread_mutex_t *mtx;
+    pthread_cond_t *cond;
+} thread_mutex_t;
+
+thread_mutex_t *threadPool;
+
 typedef struct {
-    pthread_t tid;
-    pthread_mutex_t mtx;
-    pthread_cond_t cond;
-} thread;
+    int id;
+    const char *data;
+} dto_t;
 
 
 void errExitEN(int s, const char *msg);
@@ -63,11 +69,15 @@ void errExitEN(int s, const char *msg) {
 int main(int argc, char *argv[]) {
     int s;
 
+    threadPool = calloc(argc - 1, sizeof(thread_mutex_t));
+
     for (int j = 1; j < argc; j++) {
         pthread_t tid;
         if ((s = pthread_create(&tid, NULL, messageSupplier, argv[j]))) {
             errExitEN(s, "pthread_create");
         }
+        threadPool[j - 1].mtx = PTHREAD_MUTEX_INITIALIZER;
+        threadPool[j - 1].cond = PTHREAD_COND_INITIALIZER;
     }
 
     while (!done) {
@@ -90,5 +100,8 @@ int main(int argc, char *argv[]) {
             errExitEN(s, "pthread_mutex_unlock");
         }
     }
+
+    free(threadPool);
+
     exit(EXIT_SUCCESS);
 }

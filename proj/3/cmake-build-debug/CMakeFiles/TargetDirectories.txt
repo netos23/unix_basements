@@ -1,0 +1,5 @@
+/Users/nikitamorozov/edu_vsu/unix_basics/proj/3/cmake-build-debug/CMakeFiles/s.dir
+/Users/nikitamorozov/edu_vsu/unix_basics/proj/3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/nikitamorozov/edu_vsu/unix_basics/proj/3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/nikitamorozov/edu_vsu/unix_basics/proj/3/cmake-build-debug/CMakeFiles/c.dir
+/Users/nikitamorozov/edu_vsu/unix_basics/proj/3/cmake-build-debug/CMakeFiles/bs.dir

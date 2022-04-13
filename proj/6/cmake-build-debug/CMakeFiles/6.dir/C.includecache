@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/nikitamorozov/edu_vsu/unix_basics/proj/6/main.c
+stdio.h
+-
+time.h
+-
+pthread.h
+-
+stdbool.h
+-
+stdlib.h
+-
+unistd.h
+-
+strings.h
+-
+

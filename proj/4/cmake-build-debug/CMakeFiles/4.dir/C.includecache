@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/nikitamorozov/edu_vsu/unix_basics/proj/4/src/client.c
+unistd.h
+-
+stdio.h
+-
+sys/fcntl.h
+-
+
+/Users/nikitamorozov/edu_vsu/unix_basics/proj/4/src/server.c
+unistd.h
+-
+stdlib.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+stdio.h
+-
+
